@@ -1,0 +1,184 @@
+	/*页面整体字体大小*/
+    body{
+		font-size: 20px;
+	}
+    /*列表项去掉前面的点*/
+    li{
+		list-style-type: none;
+    }
+    /*链接去掉下划线*/
+    a{
+    	text-decoration: none;
+    }
+    /*整个容器宽度1000px，外间距上下0，左右自动，以保证页面整体内容居中*/
+    #container{
+    	width: 1000px;
+    	margin: 0 auto;
+    }
+    /*顶部左侧图片*/
+    header img{
+    	margin-left: 20px;
+    }
+    /*导航外部间距上下15px，左右0，内部上下左右间距5px*/
+    nav{
+        margin: 15px 0;
+        padding: 5px;
+    }
+    /*导航每个选项的内间距*/
+    nav a{
+        padding: 2px;
+    }
+    /*导航选择鼠标经过时的效果，文字白色，背景橘黄*/
+    nav a:hover{
+    	color: white;
+    	background: orange;
+    }
+    /*左侧菜单div:宽度20%，高度400px*/
+    #lside{
+    	width: 20%;
+		height: 400px;
+    }
+   /*  左侧菜单链接效果：块状，内部上下间距5px，左右0
+   外部间距上0右10下0左-15 */
+    #lside a{
+      display: block;
+      padding: 5px 0;
+      margin: 0 10px 0 -10px;
+    }
+    /*左侧菜单链接鼠标经过时的效果：背景黄色，白色字样*/
+    #lside a:hover{
+      background: #FF905B;
+      color: white;
+    }
+    /*右侧内容div：宽度75%，无高度，自动按内容撑开*/
+    #rside{
+		width: 75%;
+    }
+    /*左浮动*/
+    .fl{
+    	float: left;
+    }
+    /*右浮动*/
+    .fr{
+    	float: right;
+    }
+    /*清除浮动*/
+    .cls{
+    	clear: both;
+    }
+    /*边框效果：边框1px，实线，浅灰，外间距10px*/
+    .box{
+    	border: 1px solid #ededed;
+    	margin: 10px;
+    }
+    /*标题效果：文本居中，背景橙黄，白色文字，字体'微软雅黑'*/
+    .subtitle{
+        padding: 2px 0;
+    	text-align: center;
+        background: orange;
+        color: white;
+        font-family: '微软雅黑';
+    }
+    /*‘请登录’文本效果：橙黄文字*/
+    .login{
+    	color: orange;
+    }
+    /*底部版权效果：高度，行高，这二个参数值一样，保证文本垂直居中
+    文本横向居中，背景浅灰*/
+    footer{
+    	height: 30px;
+    	line-height: 30px;
+    	text-align: center;
+    	background: #F1F1F1;
+    }
+
+
+
+    /*******以下是商品div的效果设置**********/
+
+
+
+        /*商品div效果：*/
+    .sp{
+        width:220px;
+        height:360px;
+        margin-right: 17px;
+        margin-top: 2px;
+        float: left;
+    }
+    /*商品div鼠标经过时效果：边框变红色*/
+    .sp:hover{
+        border:1px solid #f40;
+    }
+    /*图片效果*/
+    .pic{
+        width:220px;
+        height:220px;
+        overflow:hidden;
+    }
+    /*购买人数*/
+    .count{
+        color:gray;
+        font-size: 12px;
+    }
+    /*整体行*/
+    .row{
+        padding:0 10px;
+    }
+    /*第一行*/
+    .row1{
+        margin-top:8px;
+        /*font:18px;*/
+        color:#F40;
+        font-family: verdana,arial;
+        height: 20px;
+        line-height: 20px;
+    }
+    /*包邮文字效果*/
+    .baoyou{
+        font-size: 10px;
+        background: orange;
+        color: white;
+        padding: 1px;
+    }
+    /*第二行*/
+    .row2{
+        font-size: 12px;
+        margin-top:5px;
+        height:20px;
+        /*color:#F40;*/
+    }
+    /*第三行*/
+    .row3{
+        font-size: 12px;
+        margin-top:5px;
+    }
+    /*第四行*/
+    .row4{
+        font-size: 12px;
+        margin-top:5px;
+    }
+    /*商家名称*/
+    .shopname{
+        margin-top:5px;
+        height:25px;
+        line-height:35px;
+        overflow: hidden;
+        font-size: 12px;
+    }
+    /*商家定位*/
+    .shopLocation{
+        overflow: hidden;
+        color: gray;
+        font-size:12px;
+        line-height: 35px;
+    }
+    /* 包装规格*/
+    .size{
+        float:left;
+        border:1px solid #ffd580;
+        line-height:22px;
+        background:#ffffes;
+        padding:0 3px;
+        font-size:12px;
+    }

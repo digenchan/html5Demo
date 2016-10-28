@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>Document</title>
+		</head>
+		<style>
+         body,input,output{
+         	font-size: 30px;
+         }
+		</style>
+		<script>
+		  function write_sum(){
+		  	// 找到第一个输入框
+		  	
+       	  	var num1=document.forms["sumform"]["num1"].value;//string
+       	  	var num2=document.forms["sumform"]["num2"].value;
+
+       	  	var sum=parseInt(num1)+parseInt(num2);
+       	  	// alert(sum);
+			// document.forms["sumform"]["sum"].value=sum;
+			alert("sum="+sum);
+		  }
+
+		</script>
+		<body>
+		    <h3>10以内加法运算</h3>
+			<form action="calc.html" name="sumform" onsubmit="write_sum()">
+				 <input type="number" name="num1" min="0" max="9" style="width:40px;" pattern="[0-9]" maxlength="1" required>
+				 <span>+</span>
+				  <input type="number" name="num2" min="0" max="9" style="width:40px;">
+				 <input type="submit" value="="> 
+			</form>
+			<output name="sum">
+					<!-- 将结果放在这里 -->
+			</output>
+		</body>
+</html>
+
+<!-- 在页面上添加一个按钮，让按钮单击的时候完成计算功能 -->

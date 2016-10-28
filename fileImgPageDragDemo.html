@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面图片拖放示例</title>
+	<style>
+    body{
+    	font-size: 30px;
+    }
+    img{
+    	height: 100px;
+    	width: 100px;
+    }
+    div{
+    	height: 200px;
+    	width: 200px;
+    	border: 1px solid black;
+    }
+	</style>
+</head>
+ 
+<body>
+    <!-- multiple支持多文件选择，若没有，则只能单项选择-->
+	<p>将图片拖放到图片显示框</p>
+    <img src="img/坚果.jpg" alt="" draggable="true" id="pic1">
+    <!-- 演示一个成功后再添加二到三张图片 -->
+    <img src="img/正果腊肠.png" alt="" draggable="true" id="pic2">
+    <img src="img/鹌鹑蛋.jpg" alt="" draggable="true" id="pic3">
+	<div id="target">
+	   请将图片拖放到这里
+	</div>
+	<span id="info">
+		
+	</span>
+</body>
+</html>
+<script>
+		//获取对象
+		var pic1=document.getElementById("pic1");
+		var target=document.getElementById("target");
+		var info=document.getElementById("info");
+        
+        pic1.ondragstart=start;
+        pic2.ondragstart=start;
+        pic3.ondragstart=start;
+
+        //在拖放一开始时得到被拖者的ID
+        //数据写入或读取通过dataTransfer
+        function start(e){
+          // debugger;
+          // 将被拖者的ID记录下来
+          e.dataTransfer.setData("picId",e.target.id);
+        }
+
+		//对象在目标区内移动的事件
+        target.ondragover=function(e){
+			//阻止默认动作
+             e.preventDefault();
+        }
+
+
+		//对象在目标区被放下的事件（松开鼠标左键，放下被拖的对象）
+        target.ondrop=function(e){
+          //根据ID得到对象，根据对象上克隆一个节点
+          // var newImg=document.getElementById(e.dataTransfer.getData("picId")).cloneNode(false);
+          // 若不克隆，就直接剪切了
+          var newImg=document.getElementById(e.dataTransfer.getData("picId"));
+          //内容置空，以免重复添加
+          target.innerHTML="";
+          //添加子节点，内容是刚刚克隆的对象
+          target.appendChild(newImg);
+          //阻止默认动作
+          e.preventDefault();
+        }		
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drag and drop</title>
+    <style>
+     div{
+       width: 200px;
+       height: 200px;
+       border: 1px solid gray;   
+     }
+    </style>
+</head>
+<body>
+    <div id="target">
+        <p>
+            请将你本地的文件拖放在此处
+        </p>
+    </div>
+    <table id="fileInfo" border="1">
+        <!-- 在这里以表格展示文件信息 -->
+    </table>
+</body>
+</html>
+<!-- script代码写在主体后，是因为先要有界面，才有页面元素的操作 
+并不是用动作来触发的。
+-->
+<script>
+    var target=document.getElementById("target");
+    var fileInfo=document.getElementById("fileInfo");
+    //先阻止二个默认动作，否则浏览器会接管文件下载或打开操作
+    //dragover被拖曳元素在某元素内移动时触发
+    target.ondragover=stopDefault;
+    //dragover被拖曳元素在某元素内移动时触发
+    // target.ondrop=stopDefault;再将其转成单独的方法
+    // 因为要在这个操作里面写具体的内容，不仅仅只是阻止默认
+    // 的方法
+    function stopDefault(e){
+         e.preventDefault();
+    }
+    target.ondrop=function(e){
+         // debugger;
+         var files=e.dataTransfer.files;
+         // var file=files[0];
+         fileInfo.innerHTML="<tr><th>文件名</th><th>文件大小</th><th>文件类型</th></tr>";
+         for (var i = 0; i < files.length; i++) {
+             fileInfo.innerHTML+="<tr><td>"+files[i].name+"</td><td>"+files[i].size+"</td><td>"+files[i].type+"</td></tr>";
+         };
+         // alert(file.name);
+         e.preventDefault();
+    }
+</script>

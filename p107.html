@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文件操作演示</title>
+	<style>
+      body,input{
+      	font-size: 30px;
+      }
+	</style>
+</head>
+<script>
+	function fi(){
+      //根据ID获取文件对象
+      var vf=document.getElementById("f");
+      var vfi=document.getElementById("fi");
+      // debugger;//f12
+	 vfi.innerHTML="<tr><th>文件名</th><th>大小</th><th>类型</th></tr>";
+	 for (var i = 0; i < vf.files.length; i++) {
+	 	 vfi.innerHTML+="<tr><td>"+vf.files[i].name+"</td><td>"+vf.files[i].size+"</td><td>"+vf.files[i].type+"</td></tr>";
+	 };
+	}
+</script>
+<body>
+	请选择文件：
+	<input type="file" multiple id="f">
+	<input type="button"  value="显示文件信息" onclick="fi()">
+	<hr>
+	表格数据：
+	<table id="fi" border="1">
+	</table>
+</body>
+</html>

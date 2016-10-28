@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5</title>
+	<style>
+     body,input{
+     	font-size: 30px;
+     }
+	</style>
+</head>
+<body>
+	<form action="#" autocomplete="off" novalidate>
+	    1 placeholder的示例：<br>
+		<input type="text" placeholder="请输入你的姓名" ><br>
+		2 autofocus的示例：<br>
+		<input type="text" placeholder="请输入你的地址" autofocus><br>
+		3 list的示例：<br>
+		<input type="text" placeholder="请输入或选择你的班级" list="classz"><br>
+		<datalist id="classz">
+			<option value="14移动通信1班"></option>
+			<option value="14移动通信2班"></option>
+		</datalist>
+		4 min max step的示例：<br>
+		请选择级别：<input type="number" min="2" max="6" value="2"><br>
+		6 required的示例：<br>
+        你所在学院*：<input type="text" required><br>
+        7 multiple的示例：<br>
+        文件上传(可多选):<input type="file" multiple><br>
+        8 pattern的示例<br>
+        请输入你的三位数字学号：<input type="text" pattern="[0-9]{3}"  title="三位数字学号"><br>
+        9 email的示例：<br>
+		<input type="email" placeholder="请输入你的邮箱" ><br>
+		10 url的示例：<br>
+		<input type="url" placeholder="请输入你的个人主页" ><br>
+		11 range的示例：<br>
+		请选择你的年龄：<input type="range" min="18" max="60"><br>
+		12 datepicker的示例：<br>
+		 date:<input type="date"><br>
+		 month:<input type="month"><br>
+		 datetime:<input type="datetime"><br>
+		 datetime-local:<input type="datetime-local"><br>
+		 13 output的示例(10以内的加减法)：<br>
+		 <input id="num1" type="text" min="0" max="9" maxlength="1"  style="width:30px;">+<input id="num2" type="text" min="0" max="9" maxlength="1"  style="width:30px;">
+		 <input type="button" value="=" id="add"></input>
+		 <output name="sum" id="sum"></output><br>
+         <input type="submit" value="html5示例">
+    </form>
+</body>
+<script>
+	var num1=document.getElementById("num1").value;
+	var num2=document.getElementById("num2").value;
+	var sum=document.getElementById("sum");
+	var add=document.getElementById("add");
+	add.addEventListener('click', function(){
+		alert(num1);
+    }, false);
+</script>
+</html>

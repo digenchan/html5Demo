@@ -1,0 +1,75 @@
+﻿<!DOCTYPE HTML>
+<html>
+<style>
+    img {
+        width: 100px;
+        height: 100px
+    }
+    #target{
+        border-style:solid;
+        width:200px;
+        height:200px;
+        argin-top:20px;
+    }
+</style>
+
+<body>
+<div id="src">
+    <img draggable="true" src="b.jpg" id="b"/>
+    <img draggable="true" src="c.jpg" id="c"/>
+    <img draggable="true" src="d.jpg" id="d"/>
+    <img draggable="true" src="e.jpg" id="e"/>
+</div>
+<div id="target">
+    <p>将选择的图片拖拽到这里</p>
+</div>
+
+<div id="d">
+
+</div>
+<span id="msg"></span>
+<script>
+    var src = document.getElementById("src");
+    var target = document.getElementById("target");
+    var msg = document.getElementById("msg");
+    var draggedID;
+
+    //开始拖拽元素时触发
+    src.ondragstart = function (e) {
+        // debugger;
+        //获取拖拽对象ID
+        draggedID = e.target.id; 
+        var img = document.createElement("img");
+        img.src = e.target.src;
+        e.dataTransfer.setDragImage(img, -10, -10);
+        msg.innerHTML = "开始拖拽：" + img.src;
+    }
+
+    //拖拽时鼠标进入目的元素时触发
+    target.ondragenter = function (e) {
+        msg.innerHTML = "进入目的元素";
+        e.preventDefault();
+    }
+    
+    //拖拽时鼠标在目的元素内移动时触发
+    target.ondragover = function (e) {
+        msg.innerHTML = "在目的元素内移动";
+        e.preventDefault();
+    }
+    
+    //拖拽动作结束时触发
+    src.ondragend = function (e) {
+        msg.innerHTML = "结束拖拽";
+    }
+
+    //在目的元素内释放拖拽元素时触发
+    target.ondrop = function (e) {
+        var newElem = document.getElementById(draggedID).cloneNode(false);
+        target.innerHTML = "";
+        target.appendChild(newElem);
+        e.preventDefault();
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>web存储示例</title>
+	<style>
+      body,input{
+      	font-size: 30px;
+      }
+      input{
+      	margin: 10px 0;
+      }
+	</style>
+</head>
+<body>
+	请输入你要保存的信息：<input type="text" id="content">
+	<br>
+	<div>
+		<input type="button" id="local" value="local方式保存">
+		<br>
+		<input type="button" id="session" value="session方式保存">
+		<br>
+		<input type="button" id="show" value="读取保存的信息">
+		<div id="info">	
+		</div>
+	</div>
+</body>
+</html>
+<script>
+    // 根据ID获取元素
+	var content=document.getElementById("content");
+	var local=document.getElementById("local");
+	var session=document.getElementById("session");
+	var show=document.getElementById("show");
+	var info=document.getElementById("info");
+
+    // local按钮单击事件
+	local.onclick=function(){
+		// 先测试是否有输入
+		test();
+		// 在html5 本地存储中写入数据
+		localStorage.setItem("lvc",content.value);
+	}
+
+    // session按钮单击事件
+	session.onclick=function(){
+		// 先测试是否有输入
+        test();
+        // 在html5 本地存储中写入数据
+		sessionStorage.setItem("svc",content.value);
+	}
+    
+    // show按钮单击事件
+    show.onclick=function(){
+    	// 从html5 本地存储中读取数据
+        var localInfo=localStorage.getItem("lvc");
+        var sessionInfo=sessionStorage.getItem("svc");
+        // 显示信息
+        info.innerHTML="localStorage里面的信息是:"+localInfo+"<br>"+"sessionStorage里面的信息是:"+sessionInfo;
+    }
+    //测试是否有输入
+	function test(){
+       // alert("local");
+		if (content.value=="" || content.value==null) {
+           alert("请输入内容");
+           // 输入框获取焦点，强制用户输入
+           content.focus();
+		}
+	}
+
+</script>

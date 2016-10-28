@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fileDemo</title>
+	<style>
+    body,input{
+    	font-size: 30px;
+    }
+    div{
+    	height: 200px;
+    	width: 200px;
+    	/*border: 1px solid black;*/
+    }
+	</style>
+</head>
+<script>
+	function showFileInfo(){
+		//获取列表中的第一个文件
+		var file=document.getElementById("file").files[0];
+		var fileInfo=document.getElementById("fileInfo");
+		// alert(file.type);
+		// 如果是图片，即文件类型是以image/开头的
+		if (/image\/\w+/.test(file.type)) { 
+	        var reader=new FileReader();
+			// 将文件读入内存
+			// 随时查阅有哪些方法或参数可以使用，这个能力对于学习这里的内容相当重要
+			// debugger;
+			reader.readAsDataURL(file);
+			// debugger;
+			reader.onload=function(){
+				// debugger;
+				fileInfo.innerHTML="<img src='"+this.result+"'>";
+			}
+			
+		}else{
+            alert("请选择图片文件(*.jpg,*.jpeg,*.png等)");
+		}
+		
+	}
+</script> 
+<body>
+    <img src="" alt="">
+    <!-- multiple支持多文件选择，若没有，则只能单项选择-->
+	请选择文件:<input type="file" id="file">
+	<input type="button" value="显示文件信息" onclick="showFileInfo()">
+	<hr>
+	<h3>文件信息以图片展示结果如下：</h3>
+	<div id="fileInfo">
+	</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>div+css演示</title>
+	<style>
+     .container{
+       width: 1000px;
+       margin: 0px auto;
+     }
+     .box{
+       border: 2px solid gray;
+       margin: 5px;
+     }
+     header{
+      /*height: 50px;*/
+     }
+     nav{
+      /*line-height: 20px;*/
+      /*background: #f5f5f5;*/
+      /*height: 20px;*/
+      /*font-size: 20px;*/
+      /*padding: 10px;*/
+     }
+     .logo{
+       margin: 10px;
+     }
+     .left{
+       width: 20%;
+       height: 400px;
+       margin-top: 10px;
+     }
+     .right{
+       margin-top: 10px;
+        width: 77%;
+       height: 400px;
+     }
+     .fl{
+       float: left;
+     }
+     .fr{
+       float: right;
+     }
+     .cls{
+       clear: both;
+     } 
+     .left ul li{
+        font-size: 20px;
+        list-style-type: none;
+        /*padding: 2px;*/
+        margin: 10px 0px;
+     }
+     .nav li{
+        list-style-type: none;
+        margin: 5px 10px;
+        float: left;
+        font-size: 20px;
+     }
+     #search{
+      height: 30px;
+      line-height: 30px;
+      margin: 20px;
+     }
+     #search input{
+      font-size: 20px;
+     }
+     footer{
+       height: 100px;
+       line-height: 100px;
+       text-align: center;
+     }
+	</style>
+</head>
+<body>
+<!-- 先做一个最大的DIV，用来控制所有内容居中 -->
+  <div class="container">
+   <header class="">
+     <div class="logo fl">
+       <img src="img/taobaologo.png" alt="">
+     </div>
+     <div class="search fr">
+        <div id="search">
+          <form action="">
+            <input type="search" placeholder="请输入关键字">
+          </form>
+        </div>
+     </div>
+   </header>
+  <!--  <nav class="cls box"> -->
+      <ul class="nav cls">
+         <li>我的淘宝</li>
+         <li>购物车</li>
+         <li>收藏夹</li>
+         <li>商品分类</li>
+         <li>卖家中心</li>
+         <li>联系客服</li>
+         <li>网站导航</li>
+       </ul>
+   <!-- </nav> -->
+   <div class="cls box left fl">
+     <ul>
+       <li>今日特惠</li>
+       <li>新品上架</li>
+       <li>电子产品</li>
+       <li>床上用品</li>
+     </ul>
+   </div>
+   <div class="box right fl">
+     <section>
+       <h1>商品介绍</h1>
+        <p>
+          这是商品的具体介绍，这是商品的具体介绍，这是商品的具体，这是商品的具体介绍，这是商品的具体介绍，这是商品的具体
+        </p>
+     </section>
+     <section>
+       <h1>商品介绍</h1>
+        <p>
+          这是商品的具体介绍
+        </p>
+     </section>
+     <section>
+       <h1>商品介绍</h1>
+        <p>
+          这是商品的具体介绍
+        </p>
+     </section>
+   </div>
+   <footer class="box cls">
+     版权所有，Copyright@2011-2016 这里添加版本和帮助等信息
+   </footer>
+  </div>
+</body>
+</html>

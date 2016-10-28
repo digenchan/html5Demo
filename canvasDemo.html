@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas绘制图形示例</title>
+	<style>
+      canvas{
+      	width: 100px;
+      	height: 100px;
+      	border: 1px solid #d3d3d3;
+      }
+	</style>
+</head>
+<body>
+    请选择图形样式
+    <select id="sel">
+    	<option value="1">方形</option>
+    	<option value="2">圆形</option>
+    	<option value="3">线段</option>
+    	<option value="4">渐变</option>
+    	<option value="5">图像</option>
+    	<option value="20">空心文字</option>
+    </select>
+    <br>
+	<canvas id="drawPic">
+		您的浏览器不支持 HTML5 canvas 标签。
+   </canvas>
+</body>
+</html>
+<script>
+    var sel=document.getElementById("sel");
+	var c=document.getElementById("drawPic");
+
+    // rec();
+
+    sel.onchange=function(e){
+      // debugger;
+      // alert(this.options[e.target.selectedIndex].value);
+      var v=this.options[e.target.selectedIndex].value;
+      switch(v){
+         case '1':rec();break;
+         case '2':circle();break;
+         case '20':fullWord();break;
+      }
+    	
+    }
+
+
+    function fullWord(){
+    	// window.location.reload();
+	    var ctx=c.getContext("2d");
+		ctx.font="30px Arial";
+		ctx.strokeText("Hello World",10,50);
+    }
+     
+
+     function circle(){
+	    var ctx=c.getContext("2d");
+		ctx.beginPath();
+		ctx.arc(95,50,40,0,2*Math.PI);
+		ctx.stroke();
+    }
+
+    function rec(){
+	    var ctx=c.getContext("2d");
+		ctx.fillStyle="#FF0000";
+		ctx.fillRect(0,0,150,75);
+    }
+
+</script>
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文件操作演示</title>
+	<style>
+      body,input{
+      	font-size: 30px;
+      }
+	</style>
+</head>
+<script>
+	function fi(){
+      //根据ID获取文件对象
+      var vf=document.getElementById("f").files[0];
+      var vfi=document.getElementById("fi");
+      if (/image\/\w+/.test(vf.type)) {
+      	// alert("这是一张图片");
+      	// 显示图片内容
+      	//文件输入流
+      	var ff=new FileReader();
+      	ff.readAsDataURL(vf);
+      	//p115 onload:成功读取后要做的事件
+      	ff.onload=function(){
+      		// debugger;//this.result    file.name.
+            // alert("成功读取");
+            vfi.innerHTML="<img src='"+this.result+"'>";
+      	}
+      }
+      else{
+        alert("请选择图片文件，如： .png  .jpg");
+      }
+	}
+</script>
+<body>
+	请选择文件：
+	<input type="file" id="f">
+	<input type="button"  value="显示文件信息" onclick="fi()">
+	<hr>
+	表格数据：
+	<div id="fi" border="1">
+	</div>
+
+	<img src="" alt="">
+</body>
+</html>

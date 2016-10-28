@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drag and drop</title>
+    <style>
+     div{
+       width: 200px;
+       height: 200px;
+       border: 1px solid gray;   
+     }
+    </style>
+</head>
+<body>
+    <div id="target">
+        <p>
+            请将你本地的图片文件拖放在此处
+        </p>
+    </div>
+</body>
+</html>
+<!-- script代码写在主体后，是因为先要有界面，才有页面元素的操作 
+并不是用动作来触发的。
+-->
+<script>
+    var target=document.getElementById("target");
+    var fileInfo=document.getElementById("fileInfo");
+    //先阻止二个默认动作，否则浏览器会接管文件下载或打开操作
+    //dragover被拖曳元素在某元素内移动时触发
+    target.ondragover=stopDefault;
+    //dragover被拖曳元素在某元素内移动时触发
+    // target.ondrop=stopDefault;再将其转成单独的方法
+    // 因为要在这个操作里面写具体的内容，不仅仅只是阻止默认
+    // 的方法
+    function stopDefault(e){
+        //阻止默认动作
+         e.preventDefault();
+    }
+    target.ondrop=function(e){
+         // debugger;
+         var file=e.dataTransfer.files[0];
+         //判断文件类型是否是图片
+         if(/image\/\w+/.test(file.type)){
+            // alert(file.type);
+            // 生成文件输入流
+            var reader=new FileReader();
+            //将文件内容读取到文件输入流中
+            reader.readAsDataURL(file);
+            // 装载成功完成后要做的事，添加图片标签，显示图片
+            // 取文件流中特定属性的值result
+            reader.onload=function(){
+              target.innerHTML="<img src='"+this.result+"'>";
+            }
+         }else{
+            // alert(file.type);
+            target.innerHTML="请将你本地的图片文件拖放在此处";
+            alert("请选择图片文件(*.jpg,*.jpeg,*.png等)");
+         };
+          //阻止默认动作
+         e.preventDefault();
+    }
+</script>

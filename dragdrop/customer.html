@@ -1,0 +1,95 @@
+<html>
+<head>
+<style type="text/css">
+table, td
+{
+    border-color: #e6e6e6;
+    border-style: solid;
+}
+</style>
+<script>
+function dragIt(target, e) {
+    e.dataTransfer.setData('SpanImg', target.id);
+}
+function dropIt(target, e) {
+    var id = e.dataTransfer.getData('SpanImg');
+    target.appendChild(document.getElementById(id)); 
+    e.preventDefault();
+}
+function trashIt(target, e) {
+    var id = e.dataTransfer.getData('SpanImg');
+    removeElement(id);
+    e.preventDefault();   
+}
+function removeElement(id)	{
+    var d_node = document.getElementById(id);
+    d_node.parentNode.removeChild(d_node);
+}
+</script>
+</head>
+<body>
+<center>
+<table width="100%" border="1" cellspacing=0 cellpadding=5>
+	<tr>
+		<td colspan="3" align="center">
+			<b>请将选择的菜品和果品拖拽至对应顾客下方区域</b>
+		</td>
+	</tr>
+	<tr bgcolor="#F2F2F2">
+		<td width="30%" class="tableheader" align="center">
+			<p>顾客A</p>
+		</td>
+		<td width="30%" class="tableheader" align="center">
+			<p>顾客B</p>
+		</td>
+		<td width="30%" class="tableheader" align="center">
+			<p>顾客C</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="30%" align="center" id="customA" ondrop="dropIt(this, event)" ondragenter="return false" ondragover="return false">    
+			<span draggable="true" id="A" ondragstart="dragIt(this, event)">&nbsp;</span>
+		</td>
+		<td width="30%" align="center" id="customB" ondrop="dropIt(this, event)" ondragenter="return false" ondragover="return false">
+			<span draggable="true" id="B" ondragstart="dragIt(this, event)">&nbsp;</span>
+		</td>
+		<td width="30%" align="center" id="customC" ondrop="dropIt(this, event)" ondragenter="return false" ondragover="return false">
+			<span draggable="true" id="C" ondragstart="dragIt(this, event)">&nbsp;</span>
+		</td>
+	</tr>
+</table>
+<br>
+<br>
+<table width="100%" border="1" cellspacing=0 cellpadding=5>
+	<tr bgcolor="#F2F2F2">
+		<td class="tableheader" width="80%" valign="top" align="left">
+			<p>可选择的菜品及果品</p>
+		</td>
+		<td width="20%" class="tableheader" valign="top" align="center">
+			<p>删除</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="80%" valign="bottom" align="left" id="holder" ondrop="dropIt(this, event)" ondragenter="return false" ondragover="return false">
+			<span draggable="true" id="1" ondragstart="dragIt(this, event)"><img src="img/1.jpg"></span>
+			<span draggable="true" id="2" ondragstart="dragIt(this, event)"><img src="img/2.jpg"></span>
+			<span draggable="true" id="3" ondragstart="dragIt(this, event)"><img src="img/3.jpg"></span>
+			<span draggable="true" id="4" ondragstart="dragIt(this, event)"><img src="img/4.jpg"></span> 
+			<span draggable="true" id="5" ondragstart="dragIt(this, event)"><img src="img/5.jpg"></span> 
+			<span draggable="true" id="6" ondragstart="dragIt(this, event)"><img src="img/6.jpg"></span> 
+			<span draggable="true" id="7" ondragstart="dragIt(this, event)"><img src="img/7.jpg"></span> 
+			<span draggable="true" id="8" ondragstart="dragIt(this, event)"><img src="img/8.jpg"></span> 
+			<span draggable="true" id="9" ondragstart="dragIt(this, event)"><img src="img/9.jpg"></span> 
+			<span draggable="true" id="10" ondragstart="dragIt(this, event)"><img src="img/10.jpg"></span> 
+			<span draggable="true" id="11" ondragstart="dragIt(this, event)"><img src="img/11.jpg"></span>  
+		</td>
+		<td width="20%" valign="middle" align="center">
+			<span id="bucket3" ondragenter="return false" ondragover="return false" ondrop="trashIt(this, event)">
+				<img src="img/trash.png" draggable="false">
+			</span>
+		</td>
+	</tr>
+</table>
+</center>
+</body>
+</html>

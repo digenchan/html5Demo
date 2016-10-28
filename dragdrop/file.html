@@ -1,0 +1,31 @@
+﻿<!DOCTYPE HTML>
+<html>
+<body>
+    <div id="target" style="border-style:solid;width:200px;height:200px;margin-top:20px">
+        <p>将您本地的文件拖拽到这里</p>
+    </div>
+    <table id="data" border="1">
+    </table>
+    <script>
+//        navigator.geolocation.getCurrentPosition().
+        var target = document.getElementById("target");
+        target.ondragenter = handleDrag;
+        target.ondragover = handleDrag;
+
+        function handleDrag(e) {
+            e.preventDefault();
+        }
+
+        target.ondrop = function (e) {
+            var files = e.dataTransfer.files;
+            var tableElem = document.getElementById("data");
+            tableElem.innerHTML = "<tr><th>文件名</th><th>文件类型</th><th>文件大小</th></tr>";
+            for (var i = 0; i < files.length; i++) {
+                var row = "<tr><td>" + files[i].name + "</td><td>" + files[i].type + "</td><td>" + files[i].size + "</td></tr>";
+                tableElem.innerHTML += row;
+            }
+            e.preventDefault();
+        }
+    </script>
+</body>
+</html>
